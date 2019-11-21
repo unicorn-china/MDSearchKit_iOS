@@ -10,8 +10,6 @@
 
 #define kMDSearch_WeakSelf __weak typeof(self) weakSelf = self;
 
-
-
 #define kMDSearchScreenWidth        [UIScreen mainScreen].bounds.size.width
 #define kMDSearchStatusBarHeight    [[UIApplication sharedApplication] statusBarFrame].size.height
 #define kMDSearchNavBarHeight       44.0

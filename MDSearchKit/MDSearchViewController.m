@@ -90,26 +90,14 @@
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.cancelButton = cancelButton;
-    
-    for(int i =  0 ;i < _searchBar.subviews.count;i++){
-        UIView * backView = _searchBar.subviews[i];
-        if ([backView isKindOfClass:NSClassFromString(@"UISearchBarBackground")] == YES) {
-            [backView removeFromSuperview];
-            [_searchBar setBackgroundColor:[UIColor clearColor]];
-            
+    for (UIView *view in self.searchBar.subviews.lastObject.subviews) {
+        if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+            view.backgroundColor = [UIColor colorWithRed:234/255.0 green:235/255.0 blue:237/255.0 alpha:1];
+            view.layer.contents = nil;
+            view.hidden = YES;
+            view.layer.borderColor = [UIColor whiteColor].CGColor;
+            view.layer.borderWidth = 1;
             break;
-        }else{
-            NSArray * arr = _searchBar.subviews[i].subviews;
-            for(int j = 0;j<arr.count;j++   ){
-                UIView * barView = arr[i];
-                if ([barView isKindOfClass:NSClassFromString(@"UISearchBarBackground")] == YES) {
-                    
-                    [barView removeFromSuperview];
-                    [_searchBar setBackgroundColor:[UIColor clearColor]];
-                    
-                    break;
-                }
-            }
         }
     }
     [self setTextFieldBackgroundColor:[UIColor colorWithRed:234/255.0 green:235/255.0 blue:237/255.0 alpha:1]];
@@ -225,7 +213,8 @@
     [self.searchBar setImage:image forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
 }
 - (void)setTextFieldBackgroundColor:(UIColor *)color {
-    UIView *searchTextField = [self.searchBar valueForKey:@"_searchField"];
+    UITextField *searchTextField = [self.searchBar valueForKey:@"searchField"];
+    
     searchTextField.backgroundColor = color;
 }
 -(void)setSuggests:(NSArray *)suggests {

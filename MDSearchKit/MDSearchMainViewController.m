@@ -136,13 +136,9 @@
 }
 @end
 
-
-
 @interface MDSearchMainViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MDSearchMainReusableViewDelegate>
 
-
 @end
-
 
 @implementation MDSearchMainViewController
 
