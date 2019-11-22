@@ -35,6 +35,8 @@ typedef void(^MDSearchMainSelectedIndexPathBlock)(NSString *mainText, NSIndexPat
 
 @property (nonatomic, weak)   id<MDSearchMainViewDataSource>        dataSource;
 
+@property (nonatomic, assign) NSTextAlignment       textAlignment;
+
 + (instancetype)searchMainViewControllerWithHotSearches:(NSArray *)hots histories:(NSMutableArray *)histories datas:(NSMutableArray *)datas
                                      didSearchBlock:(MDSearchMainSelectedIndexPathBlock)block;
 @end

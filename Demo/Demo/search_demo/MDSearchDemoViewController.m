@@ -119,13 +119,14 @@
     [search.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     // 文字改变监听
     search.delegate = self;
-//    search.showResult = NO;
+    search.showResult = YES;
 //    search.haveSuggest = NO;
     // 模糊查找 数据源
-//    search.suggestVC.dataSource = self;
-//    [search.suggestVC.tableView registerClass:[MDSuggestTableViewCell class] forCellReuseIdentifier:@"MDSuggestTableViewCell"];
+    search.suggestVC.dataSource = self;
+    [search.suggestVC.tableView registerClass:[MDSuggestTableViewCell class] forCellReuseIdentifier:@"MDSuggestTableViewCell"];
     
 //     搜索页 数据源
+    search.mainVC.textAlignment = NSTextAlignmentCenter;
     search.mainVC.dataSource = self;
     [search.mainVC.collectionView registerClass:[MDHuyaCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MDHuyaCollectionReusableView"];
     [search.mainVC.collectionView registerClass:[MDHuYaCollectionViewCell class] forCellWithReuseIdentifier:@"MDHuYaCollectionViewCell"];
@@ -139,14 +140,17 @@
         [weakSelf.navigationController pushViewController:vc animated:YES];
 
     };
+    // 点击别的分区
     search.didClickItemOtherBlock = ^(MDSearchViewController *search, NSString *searchText, NSIndexPath *indexPath, MDSearchType type) {
         UIViewController *vc = [UIViewController new];
         vc.view.backgroundColor = [UIColor greenColor];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
+    // 去结果页
     search.didClickItemResultBlock = ^(MDSearchViewController *search, NSString *searchText, NSIndexPath *indexPath, MDSearchType type) {
         [weakSelf realData];
     };
+    
     // 结果页回调
     search.resultBlock = ^(MDSearchViewController *search, NSString *result, NSIndexPath *indexPath) {
         MDSearchDemoModel *model = self.results[indexPath.row];
@@ -158,8 +162,9 @@
         [weakSelf.navigationController pushViewController:safariVC animated:YES];
     };
     // 结果页 数据源
-//    search.resultVC.dataSource = self;
-//    [search.resultVC.tableView registerClass:[MDResultTableViewCell class] forCellReuseIdentifier:@"MDResultTableViewCell"];
+    search.resultVC.dataSource = self;
+    [search.resultVC.tableView registerClass:[MDResultTableViewCell class] forCellReuseIdentifier:@"MDResultTableViewCell"];
+//    [search.resultVC.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
     [self.navigationController pushViewController:search animated:YES];
 }
 
@@ -323,7 +328,14 @@
     cell.name = self.suggests[indexPath.row];
     return cell;
 }
+- (CGFloat)searchSuggestionView:(UITableView *)searchSuggestionView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
 #pragma mark 结果页代理
+
+- (NSInteger)numberOfSectionsInSearchResultView:(UITableView *)searchResultView {
+    return 1;
+}
 
 - (NSInteger)searchResultView:(UITableView *)searchResultView numberOfRowsInSection:(NSInteger)section {
     return self.results.count;

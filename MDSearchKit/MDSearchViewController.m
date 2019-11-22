@@ -222,6 +222,9 @@
         self.suggestVC.suggests = suggests;
     }
 }
+- (void)setTextAlignment:(NSTextAlignment)alignment {
+    _mainVC.textAlignment = alignment;
+}
 #pragma mark lazy
 - (UIView *)navigationBarView {
     if (!_navigationBarView) {

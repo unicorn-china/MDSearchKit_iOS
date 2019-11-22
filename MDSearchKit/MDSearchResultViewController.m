@@ -78,7 +78,7 @@
     if ([self.dataSource respondsToSelector:@selector(searchResultView:heightForHeaderInSection:)]) {
         [self.dataSource searchResultView:tableView heightForHeaderInSection:section];
     }
-    return 0;
+    return 0.1;
 }
 
 #pragma mark - UITableViewDelegate

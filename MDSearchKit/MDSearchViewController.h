@@ -102,6 +102,8 @@ typedef void(^MDSearchResultBlock)(MDSearchViewController *search, NSString *res
 - (void)setTextFieldBackgroundColor:(UIColor *)color;
 // 从数据库中获取
 - (void)setSuggests:(NSArray *)suggests;
+// 默认文字对齐
+- (void)setTextAlignment:(NSTextAlignment)alignment;
 
 +(instancetype)searchViewControllerWithHotSearches:(NSArray *)hots histories:(NSMutableArray *)histories datas:(NSMutableArray *)datas placeholder:(NSString *)placeholder;
 @end

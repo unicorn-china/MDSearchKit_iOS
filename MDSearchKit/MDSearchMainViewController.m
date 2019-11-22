@@ -221,6 +221,7 @@
     // 默认cell
     MDSearchMainCollectionViewCell *cell = (MDSearchMainCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"MDSearchMainCollectionViewCell" forIndexPath:indexPath];
     cell.title = models[indexPath.row];
+    cell.titleLabel.textAlignment = self.textAlignment;
     return cell;
 }
 
