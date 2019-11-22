@@ -113,7 +113,7 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(kMDSearchMainHeaderLeftMargin, kMDSearchMainHeaderTopMargin, 100, kMDSearchMainHeaderHeight - 2*kMDSearchMainHeaderTopMargin)];
+        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(kMDSearchMainHeaderLeftMargin, kMDSearchMainHeaderTopMargin, 200, kMDSearchMainHeaderHeight - 2*kMDSearchMainHeaderTopMargin)];
         _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.textAlignment = NSTextAlignmentLeft;

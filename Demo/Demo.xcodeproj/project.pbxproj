@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B72CB7192387E8830073D4A3 /* MDTestResultHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B72CB7182387E8830073D4A3 /* MDTestResultHeaderView.m */; };
 		B75759DD22F7F1E90043FE5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B75759DC22F7F1E90043FE5E /* AppDelegate.m */; };
 		B75759E022F7F1E90043FE5E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B75759DF22F7F1E90043FE5E /* ViewController.m */; };
 		B75759E322F7F1E90043FE5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75759E122F7F1E90043FE5E /* Main.storyboard */; };
@@ -33,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B72CB7172387E8830073D4A3 /* MDTestResultHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTestResultHeaderView.h; sourceTree = "<group>"; };
+		B72CB7182387E8830073D4A3 /* MDTestResultHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDTestResultHeaderView.m; sourceTree = "<group>"; };
 		B75759D822F7F1E90043FE5E /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75759DB22F7F1E90043FE5E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B75759DC22F7F1E90043FE5E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				B7575A3122F7F57E0043FE5E /* MDSearchDemoViewController.m */,
 				B7575A4322F7F5FE0043FE5E /* MDSuggestTableViewCell.h */,
 				B7575A2C22F7F57E0043FE5E /* MDSuggestTableViewCell.m */,
+				B72CB7172387E8830073D4A3 /* MDTestResultHeaderView.h */,
+				B72CB7182387E8830073D4A3 /* MDTestResultHeaderView.m */,
 				B7575A3222F7F57E0043FE5E /* models */,
 			);
 			path = search_demo;
@@ -257,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7575A3F22F7F57F0043FE5E /* MDSearchDemoViewController.m in Sources */,
+				B72CB7192387E8830073D4A3 /* MDTestResultHeaderView.m in Sources */,
 				B7575A2322F7F30E0043FE5E /* MDSearchMainViewController.m in Sources */,
 				B75759E022F7F1E90043FE5E /* ViewController.m in Sources */,
 				B75759EB22F7F1EB0043FE5E /* main.m in Sources */,

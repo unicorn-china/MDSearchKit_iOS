@@ -16,6 +16,7 @@
 #import "MDSearchMainModel.h"
 #import <SafariServices/SafariServices.h>
 #import "MDPushTransition.h"
+#import "MDTestResultHeaderView.h"
 
 @interface MDSearchDemoViewController ()<UISearchBarDelegate, MDSearchViewControllerDelegate, MDSearchSuggestionViewDataSource,MDSearchMainViewDataSource, MDHuyaCollectionReusableViewDelegate, MDSearchResultViewDataSource, UINavigationControllerDelegate>
 
@@ -164,7 +165,7 @@
     // 结果页 数据源
     search.resultVC.dataSource = self;
     [search.resultVC.tableView registerClass:[MDResultTableViewCell class] forCellReuseIdentifier:@"MDResultTableViewCell"];
-//    [search.resultVC.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
+    [search.resultVC.tableView registerClass:[MDTestResultHeaderView class] forHeaderFooterViewReuseIdentifier:@"MDTestResultHeaderView"];
     [self.navigationController pushViewController:search animated:YES];
 }
 
@@ -351,6 +352,18 @@
 - (CGFloat)searchResultView:(UITableView *)searchResultView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDSearchDemoModel   *model = self.results[indexPath.row];
     return model.uiModel.rowHeight + indexPath.row*2;
+}
+
+- (CGFloat)searchResultView:(UITableView *)searchResultView heightForHeaderInSection:(NSInteger)section {
+    return 100;
+}
+
+- (UIView *)searchResultView:(UITableView *)searchResultView viewForHeaderInSection:(NSInteger)section {
+     
+    MDTestResultHeaderView *titleView = [MDTestResultHeaderView headerViewWithTableView:searchResultView];
+//    titleView.frame = CGRectMake(0, 0, searchResultView.frame.size.width, 45);
+    titleView.titleLabel.text = @"收票人信息";
+    return titleView;
 }
 #pragma mark lazy
 - (UIView *)navigationBarView {

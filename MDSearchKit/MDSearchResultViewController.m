@@ -70,13 +70,13 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if ([self.dataSource respondsToSelector:@selector(searchResultView:viewForHeaderInSection:)]) {
-        [self.dataSource searchResultView:tableView viewForHeaderInSection:section];
+        return [self.dataSource searchResultView:tableView viewForHeaderInSection:section];
     }
     return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if ([self.dataSource respondsToSelector:@selector(searchResultView:heightForHeaderInSection:)]) {
-        [self.dataSource searchResultView:tableView heightForHeaderInSection:section];
+        return [self.dataSource searchResultView:tableView heightForHeaderInSection:section];
     }
     return 0.1;
 }
