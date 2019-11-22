@@ -12,10 +12,9 @@ typedef void(^MDSearchSuggestionSelectedIndexPathBlock)(NSString *suggestText, N
 
 // 这个接口，让外界提供数据源
 @protocol MDSearchSuggestionViewDataSource <NSObject>
-
+@optional
 - (NSInteger)searchSuggestionView:(UITableView *)searchSuggestionView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell *)searchSuggestionView:(UITableView *)searchSuggestionView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-@optional
 - (NSInteger)numberOfSectionsInSearchSuggestionView:(UITableView *)searchSuggestionView;
 - (CGFloat)searchSuggestionView:(UITableView *)searchSuggestionView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 

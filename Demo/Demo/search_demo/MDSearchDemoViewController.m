@@ -197,30 +197,30 @@
 }
 #pragma mark 搜索view代理
 
-- (UICollectionViewCell *)searchMainView:(UICollectionView *)searchMainView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    MDHuYaCollectionViewCell *cell = [searchMainView dequeueReusableCellWithReuseIdentifier:@"MDHuYaCollectionViewCell" forIndexPath:indexPath];
-    cell.histories = self.histories;
-    cell.section = indexPath.section;
-    if (self.histories.count != 0) {
-        if (indexPath.section == 0) {
-            cell.title = self.histories[indexPath.row];
-        } else if (indexPath.section == 1) {
-            cell.title = self.hots[indexPath.row];
-            cell.row = indexPath.row;
-        } else if (indexPath.section == 2) {
-            cell.title = self.news[indexPath.row];
-        }
-    }else {
-        if (indexPath.section == 0) {
-            cell.title = self.hots[indexPath.row];
-            cell.row = indexPath.row;
-        } else if (indexPath.section == 1) {
-            cell.title = self.news[indexPath.row];
-        }
-    }
-   
-    return cell;
-}
+//- (UICollectionViewCell *)searchMainView:(UICollectionView *)searchMainView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    MDHuYaCollectionViewCell *cell = [searchMainView dequeueReusableCellWithReuseIdentifier:@"MDHuYaCollectionViewCell" forIndexPath:indexPath];
+//    cell.histories = self.histories;
+//    cell.section = indexPath.section;
+//    if (self.histories.count != 0) {
+//        if (indexPath.section == 0) {
+//            cell.title = self.histories[indexPath.row];
+//        } else if (indexPath.section == 1) {
+//            cell.title = self.hots[indexPath.row];
+//            cell.row = indexPath.row;
+//        } else if (indexPath.section == 2) {
+//            cell.title = self.news[indexPath.row];
+//        }
+//    }else {
+//        if (indexPath.section == 0) {
+//            cell.title = self.hots[indexPath.row];
+//            cell.row = indexPath.row;
+//        } else if (indexPath.section == 1) {
+//            cell.title = self.news[indexPath.row];
+//        }
+//    }
+//
+//    return cell;
+//}
 - (UICollectionReusableView *)searchMainView:(UICollectionView *)searchMainView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString: UICollectionElementKindSectionHeader ]){
         // 默认分区头
