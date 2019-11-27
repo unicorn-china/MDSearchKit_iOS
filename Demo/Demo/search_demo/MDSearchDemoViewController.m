@@ -128,7 +128,7 @@
     
 //     搜索页 数据源
     search.mainVC.textAlignment = NSTextAlignmentCenter;
-    search.mainVC.dataSource = self;
+//    search.mainVC.dataSource = self;
     [search.mainVC.collectionView registerClass:[MDHuyaCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MDHuyaCollectionReusableView"];
     [search.mainVC.collectionView registerClass:[MDHuYaCollectionViewCell class] forCellWithReuseIdentifier:@"MDHuYaCollectionViewCell"];
     self.searchVC = search;

@@ -96,6 +96,8 @@ typedef void(^MDSearchResultBlock)(MDSearchViewController *search, NSString *res
  */
 @property (nonatomic, copy)   MDSearchResultBlock                   resultBlock;
 
+@property (nonatomic, assign) NSInteger                             maxHistoryCount;
+
 #pragma mark set方法
 - (void)setSearhIcon:(UIImage *)image;
 

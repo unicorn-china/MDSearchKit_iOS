@@ -159,6 +159,12 @@
             break;
         }
     }
+    
+    if (_maxHistoryCount != 0) { // 做下历史最大限制数
+        if (_histories.count >= _maxHistoryCount) {
+            [_histories removeLastObject];
+        }
+    }
     [_histories insertObject:searchText atIndex:0];
     [NSKeyedArchiver archiveRootObject:_histories toFile:KMDHistorySearchPath];
     
