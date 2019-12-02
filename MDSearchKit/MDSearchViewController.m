@@ -259,7 +259,9 @@
     if (!_mainVC) {
         kMDSearch_WeakSelf;
         _mainVC = [MDSearchMainViewController searchMainViewControllerWithHotSearches:self.hots histories:self.histories datas:self.datas didSearchBlock:^(NSString *mainText, NSIndexPath *indexPath, NSInteger type) {
-            [weakSelf setHistoryArrWithSearchText:mainText];
+            if (weakSelf.saveAll) {
+                [weakSelf setHistoryArrWithSearchText:mainText];
+            }
             [weakSelf.searchBar resignFirstResponder];
             [weakSelf pushToSearchResultView:mainText indexPath:indexPath type:type];
         }];
@@ -270,7 +272,10 @@
     if (!_suggestVC) {
         kMDSearch_WeakSelf;
         _suggestVC = [MDSearchSuggestViewController searchSuggestionViewControllerWithIndexPathBlock:^(NSString *suggestText, NSIndexPath *indexPath, NSInteger type) {
-            [self setHistoryArrWithSearchText:suggestText];
+            
+            if (weakSelf.saveAll) {
+                [weakSelf setHistoryArrWithSearchText:suggestText];
+            }
             [weakSelf.searchBar resignFirstResponder];
             [weakSelf pushToSearchResultView:suggestText indexPath:indexPath type:type];
         }];

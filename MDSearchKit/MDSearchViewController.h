@@ -42,6 +42,8 @@ typedef void(^MDSearchResultBlock)(MDSearchViewController *search, NSString *res
  
 @interface MDSearchViewController : UIViewController
 
+/// 点击任何都保存到历史
+@property (nonatomic, assign) BOOL                  saveAll;
 /**
  搜索导航
  */
