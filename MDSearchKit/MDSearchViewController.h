@@ -42,6 +42,8 @@ typedef void(^MDSearchResultBlock)(MDSearchViewController *search, NSString *res
  
 @interface MDSearchViewController : UIViewController
 
+/// 默认间隔
+@property (nonatomic, assign) CGFloat               textSpace;
 /// 点击任何都保存到历史
 @property (nonatomic, assign) BOOL                  saveAll;
 /**

@@ -11,6 +11,8 @@
 
 @interface MDSearchMainCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, assign)   CGFloat    textSpace;
+
 @property (nonatomic, copy)     NSString   *title;
 
 @property (nonatomic, strong)   UILabel   *titleLabel;
@@ -28,12 +30,12 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.titleLabel.frame = self.bounds;
+    self.titleLabel.frame = CGRectMake(self.textSpace, 0, self.contentView.bounds.size.width - 2*self.textSpace, self.contentView.bounds.size.height);
 }
 
 - (void)configUI {
-    self.backgroundColor = [UIColor whiteColor];
-    
+    self.backgroundColor  = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0f];
+
     [self.contentView addSubview:self.titleLabel];
     self.contentView.backgroundColor = [UIColor clearColor];
     
@@ -51,7 +53,6 @@
         _titleLabel = [[UILabel alloc]init];
         _titleLabel.font = [UIFont systemFontOfSize:12];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.backgroundColor  = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0f];
         _titleLabel.textColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0f];
     }
     return _titleLabel;
@@ -220,6 +221,7 @@
     NSArray *models = sectionModel.models;
     // 默认cell
     MDSearchMainCollectionViewCell *cell = (MDSearchMainCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"MDSearchMainCollectionViewCell" forIndexPath:indexPath];
+    cell.textSpace = self.textSpace;
     cell.title = models[indexPath.row];
     cell.titleLabel.textAlignment = self.textAlignment;
     return cell;

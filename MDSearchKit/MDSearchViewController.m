@@ -83,6 +83,7 @@
 -(void)initProperty {
     self.haveSuggest = YES;
     self.showResult  = YES;
+    self.textSpace = 10;
 }
 -(void)initSearchBar {
     
@@ -265,6 +266,7 @@
             [weakSelf.searchBar resignFirstResponder];
             [weakSelf pushToSearchResultView:mainText indexPath:indexPath type:type];
         }];
+        _mainVC.textSpace = self.textSpace;
     }
     return _mainVC;
 }

@@ -23,6 +23,8 @@ typedef void(^MDSearchMainSelectedIndexPathBlock)(NSString *mainText, NSIndexPat
 
 @interface MDSearchMainViewController : UIViewController
 
+@property (nonatomic, assign) CGFloat               textSpace;
+
 @property (nonatomic, strong) UICollectionView  *collectionView;
 
 @property (nonatomic, copy)   NSArray               *hots;

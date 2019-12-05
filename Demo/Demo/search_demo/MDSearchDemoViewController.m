@@ -127,7 +127,7 @@
     [search.suggestVC.tableView registerClass:[MDSuggestTableViewCell class] forCellReuseIdentifier:@"MDSuggestTableViewCell"];
     
 //     搜索页 数据源
-    search.mainVC.textAlignment = NSTextAlignmentCenter;
+    search.mainVC.textAlignment = NSTextAlignmentLeft;
 //    search.mainVC.dataSource = self;
     [search.mainVC.collectionView registerClass:[MDHuyaCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MDHuyaCollectionReusableView"];
     [search.mainVC.collectionView registerClass:[MDHuYaCollectionViewCell class] forCellWithReuseIdentifier:@"MDHuYaCollectionViewCell"];
