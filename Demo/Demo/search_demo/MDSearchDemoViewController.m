@@ -128,7 +128,7 @@
     
 //     搜索页 数据源
     search.mainVC.textAlignment = NSTextAlignmentLeft;
-//    search.mainVC.dataSource = self;
+    search.mainVC.dataSource = self;
     [search.mainVC.collectionView registerClass:[MDHuyaCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"MDHuyaCollectionReusableView"];
     [search.mainVC.collectionView registerClass:[MDHuYaCollectionViewCell class] forCellWithReuseIdentifier:@"MDHuYaCollectionViewCell"];
     self.searchVC = search;
@@ -201,81 +201,61 @@
     [NSKeyedArchiver archiveRootObject:self.histories toFile:KMDHistorySearchPath];
     [self.searchVC.mainVC.collectionView reloadData];
 }
+
+- (void)didClickClearAction {
+    NSLog(@"默认的清除");
+}
 #pragma mark 搜索view代理
 
-//- (UICollectionViewCell *)searchMainView:(UICollectionView *)searchMainView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    MDHuYaCollectionViewCell *cell = [searchMainView dequeueReusableCellWithReuseIdentifier:@"MDHuYaCollectionViewCell" forIndexPath:indexPath];
-//    cell.histories = self.histories;
-//    cell.section = indexPath.section;
-//    if (self.histories.count != 0) {
-//        if (indexPath.section == 0) {
-//            cell.title = self.histories[indexPath.row];
-//        } else if (indexPath.section == 1) {
-//            cell.title = self.hots[indexPath.row];
-//            cell.row = indexPath.row;
-//        } else if (indexPath.section == 2) {
-//            cell.title = self.news[indexPath.row];
+//- (UICollectionReusableView *)searchMainView:(UICollectionView *)searchMainView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+//    if ([kind isEqualToString: UICollectionElementKindSectionHeader ]){
+//        // 默认分区头
+//        MDHuyaCollectionReusableView *view = [searchMainView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"MDHuyaCollectionReusableView" forIndexPath:indexPath];
+//        view.delegate = self;
+//        if (self.histories.count != 0) {
+//            if (indexPath.section == 0) {
+//                view.titleLabel.text = @"我搜过的";
+//                view.isHistory = YES;
+//                view.rightTitle = @"清空";
+//                if (self.histories.count == 0) {
+//                    return nil;
+//                }
+//            } else if (indexPath.section == 1) {
+//                view.titleLabel.text = @"热门搜索";
+//                view.isHistory = NO;
+//                view.rightTitle = @"热搜榜";
+//                if (self.hots.count == 0) {
+//                    return nil;
+//                }
+//            } else if (indexPath.section == 2) {
+//                view.titleLabel.text = @"热门资讯";
+//                view.isHistory = NO;
+//                view.rightTitle = @"更多";
+//                if (self.news.count == 0) {
+//                    return nil;
+//                }
+//            }
+//        }else {
+//            if (indexPath.section == 0) {
+//                view.titleLabel.text = @"热门搜索";
+//                view.isHistory = NO;
+//                view.rightTitle = @"热搜榜";
+//                if (self.hots.count == 0) {
+//                    return nil;
+//                }
+//            } else if (indexPath.section == 1) {
+//                view.titleLabel.text = @"热门资讯";
+//                view.isHistory = NO;
+//                view.rightTitle = @"更多";
+//                if (self.news.count == 0) {
+//                    return nil;
+//                }
+//            }
 //        }
-//    }else {
-//        if (indexPath.section == 0) {
-//            cell.title = self.hots[indexPath.row];
-//            cell.row = indexPath.row;
-//        } else if (indexPath.section == 1) {
-//            cell.title = self.news[indexPath.row];
-//        }
+//        return view;
 //    }
-//
-//    return cell;
+//    return nil;
 //}
-- (UICollectionReusableView *)searchMainView:(UICollectionView *)searchMainView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if ([kind isEqualToString: UICollectionElementKindSectionHeader ]){
-        // 默认分区头
-        MDHuyaCollectionReusableView *view = [searchMainView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"MDHuyaCollectionReusableView" forIndexPath:indexPath];
-        view.delegate = self;
-        if (self.histories.count != 0) {
-            if (indexPath.section == 0) {
-                view.titleLabel.text = @"我搜过的";
-                view.isHistory = YES;
-                view.rightTitle = @"清空";
-                if (self.histories.count == 0) {
-                    return nil;
-                }
-            } else if (indexPath.section == 1) {
-                view.titleLabel.text = @"热门搜索";
-                view.isHistory = NO;
-                view.rightTitle = @"热搜榜";
-                if (self.hots.count == 0) {
-                    return nil;
-                }
-            } else if (indexPath.section == 2) {
-                view.titleLabel.text = @"热门资讯";
-                view.isHistory = NO;
-                view.rightTitle = @"更多";
-                if (self.news.count == 0) {
-                    return nil;
-                }
-            }
-        }else {
-            if (indexPath.section == 0) {
-                view.titleLabel.text = @"热门搜索";
-                view.isHistory = NO;
-                view.rightTitle = @"热搜榜";
-                if (self.hots.count == 0) {
-                    return nil;
-                }
-            } else if (indexPath.section == 1) {
-                view.titleLabel.text = @"热门资讯";
-                view.isHistory = NO;
-                view.rightTitle = @"更多";
-                if (self.news.count == 0) {
-                    return nil;
-                }
-            }
-        }
-        return view;
-    }
-    return nil;
-}
 - (CGSize)searchMainView:(UICollectionView *)searchMainView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     CGSize size = CGSizeZero;

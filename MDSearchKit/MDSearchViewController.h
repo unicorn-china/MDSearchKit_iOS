@@ -38,6 +38,7 @@ typedef void(^MDSearchResultBlock)(MDSearchViewController *search, NSString *res
 - (void)searchViewController:(MDSearchViewController *)searchViewController
          searchTextDidChange:(UISearchBar *)searchBar
                   searchText:(NSString *)searchText;
+
 @end
  
 @interface MDSearchViewController : UIViewController

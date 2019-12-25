@@ -19,6 +19,7 @@ typedef void(^MDSearchMainSelectedIndexPathBlock)(NSString *mainText, NSIndexPat
 - (CGSize)searchMainView:(UICollectionView *)searchMainView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section;
 - (UICollectionReusableView *)searchMainView:(UICollectionView *)searchMainView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
 
+- (void)didClickClearAction;
 @end
 
 @interface MDSearchMainViewController : UIViewController

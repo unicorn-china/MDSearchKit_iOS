@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MDSearchKit'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.summary          = '搜索框组件'
   s.homepage         = 'https://github.com/unicorn-china/MDSearchKit_iOS.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
