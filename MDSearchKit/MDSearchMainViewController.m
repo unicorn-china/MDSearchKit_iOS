@@ -192,6 +192,8 @@
 - (void)clearHistory {
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(didClickClearAction)]) {
         [self.dataSource didClickClearAction];
+        [self.collectionView reloadData];
+        return;
     }
     [self.histories removeAllObjects];
     [self.datas removeObjectAtIndex:0];
